@@ -1,0 +1,54 @@
+/* Базові скидання */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+/* Контейнер галереї */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 1128px; /* Максимальна ширина контейнера */
+  margin: 0 auto; /* Центрування по екрану */
+  padding: 0;
+  list-style: none; /* Прибираємо крапки від тегу <ul> */
+}
+
+/* Картка галереї (li) */
+.gallery-item {
+  /* Віднімаємо відступи (gap) від загальної ширини, щоб рівно вмістити 3 картинки в ряд */
+  width: calc((100% - 48px) / 3);
+  height: 240px; /* Фіксована висота карток */
+  overflow: hidden; /* Щоб картинка при збільшенні не вилазила за межі рамки */
+  border-radius: 8px; /* Легке скруглення країв */
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
+
+/* Посилання (a) */
+.gallery-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Сама картинка (img) */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Запобігає сплющуванню картинок */
+  transition: transform 0.3s ease; /* Плавна анімація */
+}
+
+/* Ефект при наведенні мишки */
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05); /* Легке наближення картинки (zoom) */
+  cursor: zoom-in; /* Змінюємо курсор на лупу */
+}
