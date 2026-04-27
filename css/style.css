@@ -5,30 +5,26 @@
 
 body {
   margin: 0;
-  padding: 24px;
   background-color: #fafafa;
   font-family: sans-serif;
 }
 
-/* Контейнер галереї */
+/* Контейнер галереї (флекс сітка 1128px) */
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  width: 1128px; /* Максимальна ширина контейнера */
-  margin: 0 auto; /* Центрування по екрану */
+  gap: 24px; /* Універсальний gap 24px */
+  width: 1128px; /* Точна ширина з ТЗ */
+  margin: 24px auto; /* 24px зверху, по центру по горизонталі */
   padding: 0;
-  list-style: none; /* Прибираємо крапки від тегу <ul> */
+  list-style: none; /* Прибираємо крапки */
 }
 
 /* Картка галереї (li) */
 .gallery-item {
-  /* Віднімаємо відступи (gap) від загальної ширини, щоб рівно вмістити 3 картинки в ряд */
-  width: calc((100% - 48px) / 3);
-  height: 240px; /* Фіксована висота карток */
-  overflow: hidden; /* Щоб картинка при збільшенні не вилазила за межі рамки */
-  border-radius: 8px; /* Легке скруглення країв */
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1); /* Легка тінь */
+  width: calc((100% - 48px) / 3); /* (1128 - 24*2) / 3 = рівно 360px на картку */
+  height: 200px; /* Точна висота з ТЗ */
+  overflow: hidden; 
 }
 
 /* Посилання (a) */
@@ -49,6 +45,6 @@ body {
 
 /* Ефект при наведенні мишки */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.05); /* Легке наближення картинки (zoom) */
+  transform: scale(1.05); /* Легке збільшення, як у професійних проєктах */
   cursor: zoom-in; /* Змінюємо курсор на лупу */
 }
