@@ -1,0 +1,84 @@
+/* ================= БАЗОВІ СКИДАННЯ ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Скидаємо стандартні відступи браузера для списків */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Скидаємо стандартну поведінку картинок, щоб вони не вилазили за контейнер */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================= СІТКА ГАЛЕРЕЇ ================= */
+.gallery {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяємо перенос на новий рядок */
+  gap: 24px; /* Жорсткий відступ 24px */
+  width: 1128px;
+  margin: 24px auto; /* Центруємо галерею на сторінці */
+}
+
+/* Картка галереї (li) */
+.gallery-item {
+  /* Формула: (100% ширини - два відступи по 24px) / 3 колонки */
+  width: calc((100% - 48px) / 3);
+  height: 200px;
+  overflow: hidden;
+}
+
+/* ================= ЕЛЕМЕНТИ КАРТКИ ================= */
+.gallery-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* Плавність збільшення */
+}
+
+/* ================= ЕФЕКТИ ПРИ НАВЕДЕННІ (HOVER) ================= */
+.gallery-item:hover .gallery-image {
+  transform: scale(1.04); /* Збільшує картинку з 200px до ~208px візуально */
+}
+
+.gallery-item:hover {
+  cursor: pointer; /* Змінює курсор на ту саму "руку" (вказівник) */
+}
+
+/* ================= МОДАЛЬНЕ ВІКНО ================= */
+.modal-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий чорний фон */
+  color: #fff; /* Білий текст */
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
