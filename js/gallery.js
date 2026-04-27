@@ -102,7 +102,7 @@ galleryContainer.addEventListener('click', event => {
   const imageAlt = event.target.alt;
 
   // Створюємо екземпляр basicLightbox із розміткою всередині
-	const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(`
 			<div class="modal-wrapper">
 				<img src="${largeImageURL}" alt="${imageAlt}" width="1128" height="auto">
 				<div class="modal-caption">${imageAlt}</div>
@@ -112,4 +112,3 @@ galleryContainer.addEventListener('click', event => {
   // Відкриваємо модальне вікно
   instance.show();
 });
-
