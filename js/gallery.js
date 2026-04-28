@@ -64,10 +64,10 @@ const images = [
   },
 ];
 
-// Знаходимо контейнер списку
+// Select the gallery container
 const galleryContainer = document.querySelector('.gallery');
 
-// Створюємо розмітку
+// Generate gallery markup
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
@@ -85,30 +85,30 @@ const galleryMarkup = images
   )
   .join('');
 
-// Додаємо розмітку в DOM
+// Render markup in the DOM
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
-// Слухач подій для делегування та відкриття модалки
+// Event delegation for opening the modal
 galleryContainer.addEventListener('click', event => {
   event.preventDefault();
 
-  // Перевіряємо, чи клік був по картинці
+  // Ignore clicks outside of images
   if (event.target.nodeName !== 'IMG') {
     return;
   }
 
-  // Отримуємо посилання на велике фото та його опис
+  // Get the source of the large image and its description
   const largeImageURL = event.target.dataset.source;
   const imageAlt = event.target.alt;
 
-  // Створюємо екземпляр basicLightbox із розміткою всередині
+  // Create a basicLightbox instance
   const instance = basicLightbox.create(`
-			<div class="modal-wrapper">
-				<img src="${largeImageURL}" alt="${imageAlt}" width="1128" height="auto">
-				<div class="modal-caption">${imageAlt}</div>
-			</div>
-		`);
+      <div class="modal-wrapper">
+        <img src="${largeImageURL}" alt="${imageAlt}" width="1128" height="auto">
+        <div class="modal-caption">${imageAlt}</div>
+      </div>
+    `);
 
-  // Відкриваємо модальне вікно
+  // Show the modal
   instance.show();
 });

@@ -1,4 +1,4 @@
-/* ================= БАЗОВІ СКИДАННЯ ================= */
+/* ================= BASE ================= */
 * {
   box-sizing: border-box;
 }
@@ -9,38 +9,34 @@ body {
   font-family: sans-serif;
 }
 
-/* Скидаємо стандартні відступи браузера для списків */
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* Скидаємо стандартну поведінку картинок, щоб вони не вилазили за контейнер */
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* ================= СІТКА ГАЛЕРЕЇ ================= */
+/* ================= GALLERY GRID ================= */
 .gallery {
   display: flex;
-  flex-wrap: wrap; /* Дозволяємо перенос на новий рядок */
-  gap: 24px; /* Жорсткий відступ 24px */
+  flex-wrap: wrap;
+  gap: 24px;
   width: 1128px;
-  margin: 24px auto; /* Центруємо галерею на сторінці */
+  margin: 24px auto;
 }
 
-/* Картка галереї (li) */
 .gallery-item {
-  /* Формула: (100% ширини - два відступи по 24px) / 3 колонки */
   width: calc((100% - 48px) / 3);
   height: 200px;
   overflow: hidden;
 }
 
-/* ================= ЕЛЕМЕНТИ КАРТКИ ================= */
+/* ================= GALLERY CARDS ================= */
 .gallery-link {
   display: block;
   width: 100%;
@@ -51,19 +47,14 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out; /* Плавність збільшення */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* ================= ЕФЕКТИ ПРИ НАВЕДЕННІ (HOVER) ================= */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.04); /* Збільшує картинку з 200px до ~208px візуально */
+  transform: scale(1.04);
 }
 
-.gallery-item:hover {
-  cursor: pointer; /* Змінює курсор на ту саму "руку" (вказівник) */
-}
-
-/* ================= МОДАЛЬНЕ ВІКНО ================= */
+/* ================= MODAL ================= */
 .modal-wrapper {
   position: relative;
   display: flex;
@@ -76,9 +67,14 @@ img {
   left: 0;
   width: 100%;
   padding: 16px;
-  background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий чорний фон */
-  color: #fff; /* Білий текст */
-  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
   font-size: 16px;
   margin: 0;
+}
+
+.modal-wrapper img {
+  max-height: 90vh;
+  width: auto;
+  object-fit: contain;
 }
